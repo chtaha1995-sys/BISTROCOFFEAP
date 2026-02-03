@@ -1,0 +1,9 @@
+
+{
+  "name": "Bistro Coffee Management System",
+  "description": "A comprehensive coffee shop management app featuring loyalty cards, menu management, order tracking, and a new slider control for administrators.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ]
+}
