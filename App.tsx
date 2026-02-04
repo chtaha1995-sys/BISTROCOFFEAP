@@ -1,4 +1,4 @@
-
+import { supabase } from "./supabase";
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { HashRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { 
@@ -1222,6 +1222,18 @@ function OrdersView({ user, orders, updateOrderStatus, t, lang }: any) {
 
 // --- Main App Component ---
 export default function App() {
+  useEffect(() => {
+  async function testSupabase() {
+    const { data, error } = await supabase
+      .from("customers")
+      .select("*");
+
+    console.log("DATA:", data);
+    console.log("ERROR:", error);
+  }
+
+  testSupabase();
+}, []);
   const [showSplash, setShowSplash] = useState(true);
   const [user, setUser] = useLocalStorage<UserType | null>('bc_user_v6', null);
   const [users, setUsers] = useLocalStorage<UserType[]>('bc_users_v6', INITIAL_USERS);
